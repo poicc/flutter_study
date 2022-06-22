@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_demo/home_page.dart';
-import 'package:flutter_demo/text_page.dart';
+// import 'package:flutter_demo/text_page.dart';
+// import 'package:flutter_demo/checkbox_page.dart';
+// import 'package:flutter_demo/form_page.dart';
+import 'package:flutter_demo/progress_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, //去掉debug图标
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const TextPage(),
+      home: const ProgressPage(),
     );
   }
 }
