@@ -1,16 +1,19 @@
-# flutter_demo
+# Flutter基础学习
 
-A new Flutter project.
+### 基础组件
 
-## Getting Started
+文本
 
-This project is a starting point for a Flutter application.
+按钮
 
-A few resources to get you started if this is your first Flutter project:
+图片和图标
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+单选开关和复选框
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+输入框和表单
+
+进度指示器
+
+
+
+## 布局组件
