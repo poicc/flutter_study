@@ -3,11 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_demo/bottom/index.dart';
-import 'package:flutter_demo/page/button_widget.dart';
-import 'package:flutter_demo/page/form_widget.dart';
+import 'package:flutter_demo/page/container_widget.dart';
 import 'package:flutter_demo/page/image_widget.dart';
-import 'package:flutter_demo/page/login_widget.dart';
-import 'package:flutter_demo/page/progress_widget.dart';
+import 'package:flutter_demo/page/plant_shop.dart';
 import 'package:flutter_demo/page/text_widget.dart';
 
 void main() {
@@ -32,15 +30,13 @@ class MyApp extends StatelessWidget {
       routes: {
         '/index': (context) => const Index(),
         '/text': (context) => const TextWidget(),
-        '/button': (context) => const ButtonWidget(),
+        '/container': (context) => const ContainerWidget(),
         '/image': (context) => const ImageWidget(),
-        '/form': (context) => const FormWidget(),
-        '/progress': (context) => const ProgressWidget(),
-        '/login': (context) => const LoginWidget(),
+        '/plant-shop': (context) => const PlantShop(),
       },
       initialRoute: '/',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: const Index(),
     );
