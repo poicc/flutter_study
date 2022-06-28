@@ -64,6 +64,7 @@ flutter:
     - images/p1.png
     - images/p2.png
     - images/p3.png
+    - images/cat.gif
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
