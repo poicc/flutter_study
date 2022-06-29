@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/common/style.dart';
 
 class TextWidget extends StatelessWidget {
   const TextWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var style = const TextStyle(
+      color: Colors.blue,
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+      letterSpacing: 10,
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('文本组件'),
@@ -12,62 +20,54 @@ class TextWidget extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(12.0),
         child: Column(
-          children: <Widget>[
-            Text(
-              "这是一段可重复的文字. " * 4,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Colors.green,
-              ),
-            ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             const Text(
-              "Hello world",
-              textAlign: TextAlign.left,
+              '文本组件',
+              style: titleStyle,
             ),
-            const Text(
-              "可以放大的文字",
-              textScaleFactor: 1.8,
-            ),
-            Text(
-              "Hello world",
-              style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 18.0,
-                  height: 1.2,
-                  fontFamily: "Courier",
-                  background: Paint()..color = Colors.yellow,
-                  decoration: TextDecoration.underline,
-                  decorationStyle: TextDecorationStyle.dashed),
-            ),
-            const Text.rich(TextSpan(children: [
-              TextSpan(text: "Home: "),
-              TextSpan(
-                  text: "https://flutterchina.club",
-                  style: TextStyle(color: Colors.blue)),
-            ])),
-            DefaultTextStyle(
-              //1.设置文本默认样式
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 20.0,
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 5.0,
               ),
-              textAlign: TextAlign.start,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
-                  Text("hello world"),
-                  Text("I am Jack"),
-                  Text(
-                    "I am Jack",
-                    style: TextStyle(
-                        inherit: false, //2.不继承默认样式
-                        color: Colors.grey),
-                  ),
-                ],
+              child: const Text(
+                '用于容纳单个子组件的容器组件,拥有的属性非常多，足够满足适应需求，核心样式由style属性控制。',
+                style: descStyle,
               ),
             ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 10.0,
+              ),
+              color: Colors.indigo.withAlpha(70),
+              child: Wrap(
+                  spacing: 10,
+                  runSpacing: 10,
+                  // 对齐方式依次是：left、right、center、justify、start、end
+                  children: TextAlign.values
+                      .map((e) => Container(
+                            width: 200,
+                            color: Colors.cyanAccent.withAlpha(33),
+                            height: 66,
+                            child: Text(
+                              " 走进Flutter" * 2,
+                              textAlign: e,
+                            ),
+                          ))
+                      .toList()),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 10.0,
+              ),
+              height: 120,
+              color: Colors.black87,
+              alignment: Alignment.center,
+              child: Text(
+                "Flutter学习",
+                style: style,
+              ),
+            )
           ],
         ),
       ),
