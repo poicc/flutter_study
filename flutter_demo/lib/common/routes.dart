@@ -6,6 +6,8 @@ import 'package:flutter_demo/widget/stateful/image_widget.dart';
 import 'package:flutter_demo/widget/stateful/pageviewcontrol.dart';
 import 'package:flutter_demo/widget/stateful/sliverappbar_widget.dart';
 import 'package:flutter_demo/widget/stateless/actionchip_widget.dart';
+import 'package:flutter_demo/widget/stateless/button_widget.dart';
+import 'package:flutter_demo/widget/stateless/card_widget.dart';
 import 'package:flutter_demo/widget/stateless/chip_widget.dart';
 import 'package:flutter_demo/widget/stateless/choicechip_widget.dart';
 import 'package:flutter_demo/widget/stateless/circleavatar_widget.dart';
@@ -20,6 +22,7 @@ import 'package:flutter_demo/widget/stateless/singlechildscrollview_widget.dart'
 import 'package:flutter_demo/widget/stateless/text_widget.dart';
 import 'package:flutter_demo/widget/stateless/theme_widget.dart';
 import 'package:flutter_demo/widget/stateless/useraccountdrawerheader_widget.dart';
+import 'package:flutter_demo/widget/stateless/visibility_widget.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   '/index': (context) => const Index(),
@@ -47,4 +50,7 @@ Map<String, Widget Function(BuildContext)> routes = {
   // 示例导航
   '/plant-shop': (context) => const PlantShop(),
   '/timeline': (context) => const TimelinePage(),
+  '/button': (context) => const ButtonWidget(),
+  '/card': (context) => const CardWidget(),
+  '/visiblity': (context) => const VisibilityWidget(),
 };
