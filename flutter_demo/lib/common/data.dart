@@ -73,14 +73,29 @@ final statelessList = <ContainerInfo>[
       "/radiolisttile"),
   ContainerInfo("GridTileWidget", " Flutter提供的一个通用列表条目结构可指定头、尾、子组件，常用于网格列表。",
       "/gridtile"),
-  ContainerInfo("AboutListTileWidget",
+  ContainerInfo("AboutListTile",
       " 一个点击条目,点击时可以弹出应用相关信息，可指定应用图标、应用名、应用版本号等信息和内部的子组件列表", "/aboutlisttile"),
   ContainerInfo(
-      "SpacerWidget",
+      "Spacer",
       " 只能用于Row、Column和Flex布局中，可利用剩余空间进行占位ie,使用flex属性可以给多个Spacer按比例分配空间。",
       "/spacer"),
-  ContainerInfo("AboutListTileWidget",
+  ContainerInfo("AboutListTile",
       " 一个通用的对话框结构，可指定头、种、尾处的组件。拥有标题、内容的文字样式和边距、影深、形状等属性", "/alertdialog"),
+  ContainerInfo("Dialog", " 最简易的对话框面板，包含一个内容组件，可指定影深、背景色、形状等属性", "/dialog"),
+  ContainerInfo("AboutDialog",
+      "应用等简介对话框，可指定应用图标，应用名、应用版本号等信息和内部等子组件列表，点击左侧按钮可以转到证书页", "/aboutdialog"),
+  ContainerInfo("SimpleDialog", " 简单的对话框，可指定头、中部的组件。拥有标题、内容的样式文字和边距、影深、形状等属性",
+      "/simpledialog"),
+  ContainerInfo("DayPicker", "日期选择组件，可指定当前日期、选中日期、展示月份等，接收日期选中事件", "/picker"),
+  ContainerInfo(
+      "SafeArea", "通过添加内边距，来适配一些手机本身特殊性（圆角、刘海屏等）而所造成等布局问题", "/safearea"),
+  ContainerInfo("MaterialBanner", " 简单的对话框，可指定头、中部的组件。拥有标题、内容的样式文字和边距、影深、形状等属性",
+      "/materialbanner"),
+  ContainerInfo(
+      "NavigationToolbar",
+      "左中右模式等通用结构组件，可指定中间组件距左侧边距及是否居中。源码在AppBar等导航条结构中有使用它",
+      "/navigationtoolbar"),
+  ContainerInfo("Placeholder", "一个矩形和叉叉等占位组件，可指定颜色、线宽、宽高等属性", "/placeholder"),
 ];
 
 final statefulList = <ContainerInfo>[

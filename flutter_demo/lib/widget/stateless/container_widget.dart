@@ -7,12 +7,10 @@ class ContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Container组件'),
+        title: const Text('container组件'),
       ),
       body: Container(
-        padding: const EdgeInsets.all(
-          10.0,
-        ),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
