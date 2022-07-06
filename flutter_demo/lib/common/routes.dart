@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/bottom/index.dart';
 import 'package:flutter_demo/sample/plant_shop.dart';
 import 'package:flutter_demo/sample/timeline_page.dart';
+import 'package:flutter_demo/widget/stateful/animated_builder_widget.dart';
+import 'package:flutter_demo/widget/stateful/animated_container_widget.dart';
+import 'package:flutter_demo/widget/stateful/animated_effect_widget.dart';
+import 'package:flutter_demo/widget/stateful/animated_list_widget.dart';
+import 'package:flutter_demo/widget/stateful/animated_switch_widget.dart';
 import 'package:flutter_demo/widget/stateful/image_widget.dart';
 import 'package:flutter_demo/widget/stateful/pageviewcontrol.dart';
 import 'package:flutter_demo/widget/stateful/sliverappbar_widget.dart';
@@ -93,4 +98,9 @@ Map<String, Widget Function(BuildContext)> routes = {
   "/divider": (context) => const DividerWidget(),
   "/others": (context) => const MyPreferredSizeWidget(),
   "/cupertino": (context) => const CupertinoWidget(),
+  "/animated/container": (context) => const AnimatedContainerWidget(),
+  "/animated/builder": (context) => const AnimatedBuilderWidget(),
+  "/animated/list": (context) => const AnimatedListWidget(),
+  "/animated/switcher": (context) => const AnimatedSwitchWidget(),
+  "/animated/effect": (context) => const AnimatedEffectWidget(),
 };
