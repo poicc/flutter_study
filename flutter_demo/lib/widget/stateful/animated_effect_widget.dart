@@ -52,11 +52,28 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
   // 物理模块动画参数
   bool flag = false;
 
-  // 方向定位动画参数
-  late double _start = 0.0;
-
   // 主题颜色动画
-  Color _myColor = Colors.red;
+  ThemeData startTheme = ThemeData(
+      primaryColor: Colors.blue,
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+            color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+      ));
+
+  ThemeData endTheme = ThemeData(
+      primaryColor: Colors.red,
+      textTheme: const TextTheme(
+        headline1: TextStyle(
+            color: Colors.black, fontSize: 16, fontWeight: FontWeight.normal),
+      ));
+
+  late ThemeData theme;
+
+  // 渐变动画参数
+  Color _value = Colors.red;
+
+  // 方向定位动画参数
+  double _start = 0.0;
 
   @override
   void initState() {
@@ -65,6 +82,7 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
     _top = startTop;
     _width = starting;
     _style = startStyle;
+    theme = startTheme;
     super.initState();
   }
 
@@ -345,12 +363,13 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
                 ),
               ),
               Switch(
-                  value: flag,
-                  onChanged: (v) {
-                    setState(() {
-                      flag = v;
-                    });
-                  }),
+                value: flag,
+                onChanged: (v) {
+                  setState(() {
+                    flag = v;
+                  });
+                },
+              ),
               Container(
                 width: 150,
                 height: 150,
@@ -377,7 +396,74 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
                 ),
               ),
               const Text(
-                '方向定位动画',
+                '主题切换动画',
+                style: titleStyle,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10.0),
+                child: const Text(
+                  '主题变化时具有动画效果的组件，本质是Theme组件和动⾯结合的产物。可指定 Theme Data、动⾯时⻓、曲线、结束回调等。相当于增强版的Theme组件。',
+                  style: descStyle,
+                ),
+              ),
+              Switch(
+                value: theme == endTheme,
+                onChanged: (v) {
+                  setState(() {
+                    theme == v ? endTheme : startTheme;
+                  });
+                },
+              ),
+              AnimatedTheme(
+                duration: const Duration(seconds: 1),
+                data: theme,
+                curve: Curves.easeInOut,
+                child: const ChildContent(),
+              ),
+              const Text(
+                '渐变动画构造器',
+                style: titleStyle,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10.0),
+                child: const Text(
+                  '通过渐变器 Tween 对相关属性进⾏渐变动画，通过 builder 进⾏局部构建，减少刷新范围。不需要⾃定义动画器，可指定动画时⻓、曲线、结朿回调。',
+                  style: descStyle,
+                ),
+              ),
+              SizedBox(
+                width: 200,
+                height: 150,
+                child: TweenAnimationBuilder(
+                  tween: ColorTween(begin: Colors.blue, end: _value),
+                  duration: const Duration(milliseconds: 800),
+                  builder: (BuildContext ctx, Color? color, Widget? child) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _value =
+                              _value == Colors.red ? Colors.blue : Colors.red;
+                        });
+                      },
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: color,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.analytics_outlined,
+                    color: Colors.white,
+                    size: 60,
+                  ),
+                ),
+              ),
+              const Text(
+                '方向变化动画',
                 style: titleStyle,
               ),
               Container(
@@ -410,45 +496,30 @@ class _AnimatedEffectWidgetState extends State<AnimatedEffectWidget> {
                   ],
                 ),
               ),
-              const Text(
-                '主题切换动画',
-                style: titleStyle,
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 10.0),
-                child: const Text(
-                  '主题变化时具有动画效果的组件，本质是Theme组件和动⾯结合的产物。可指定 Theme Data、动⾯时⻓、曲线、结束回调等。相当于增强版的Theme组件。',
-                  style: descStyle,
-                ),
-              ),
-              AnimatedTheme(
-                duration: const Duration(seconds: 5),
-                data: ThemeData(
-                  cardColor: _myColor,
-                ),
-                child: InkWell(
-                  child: Column(
-                    children: const [
-                      Card(
-                        child: SizedBox(
-                          width: 200,
-                          height: 200,
-                        ),
-                      ),
-                    ],
-                  ),
-                  onTap: () {
-                    setState(() {
-                      _myColor =
-                          _myColor == Colors.red ? Colors.blue : Colors.red;
-                      print("object");
-                    });
-                  },
-                ),
-              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ChildContent extends StatelessWidget {
+  const ChildContent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 80,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
+          color: Theme.of(context).primaryColor),
+      padding: const EdgeInsets.all(10),
+      child: Text(
+        'Flutter Unit',
+        style: Theme.of(context).textTheme.headline1,
       ),
     );
   }
