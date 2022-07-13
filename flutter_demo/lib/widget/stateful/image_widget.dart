@@ -4,7 +4,7 @@ import 'package:flutter_demo/common/style.dart';
 class ImageWidget extends StatelessWidget {
   const ImageWidget({Key? key}) : super(key: key);
   final assetsImagePath = 'images/Android_Studio.png';
-  final assetsGifPath = 'images/my-gif.gif';
+  final assetsGifPath = 'images/cat.gif';
   final netImageUrl =
       'https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/hand-2.jpg';
 

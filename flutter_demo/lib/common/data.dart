@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/widget/custom/new_widget.dart';
 import 'package:flutter_demo/widget/custom/widget_container.dart';
 
 final data = <dynamic>[
@@ -17,6 +18,7 @@ final data = <dynamic>[
 String colorString(dynamic color) =>
     "#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}";
 
+// 无状态
 final statelessList = <ContainerInfo>[
   ContainerInfo('Container', '用于容纳单个子组件的容器组件。集成了若干个单子组件的功能，如内外边距、形变、装饰、约束等。',
       '/container'),
@@ -105,6 +107,7 @@ final statelessList = <ContainerInfo>[
   ContainerInfo("Cupertino", "iOS风格组件", "/cupertino"),
 ];
 
+// 有状态
 final statefulList = <ContainerInfo>[
   ContainerInfo(
       'Image', '用于显示一张图片，可以从文件、内存、网络、资源里加载，可以指定适应方式、样式、颜色混合模式、重复模式。', '/image'),
@@ -175,3 +178,32 @@ final statefulList = <ContainerInfo>[
   ContainerInfo(
       'SelectableText', '可选择的文字，可以选择、复制。可指定浮标的颜色、大小、文字样式、对齐方式等', '/selectable'),
 ];
+
+// 单渲染组件列表
+final singleRenderList = <NewContainer>[
+  NewContainer(
+      'Clip', '椭圆裁剪，可容纳一个子组件，并将其以宽高为⻓轴和短轴进行椭圆裁切', '/clip', Colors.blue),
+  NewContainer('Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box',
+      Colors.blue),
+  NewContainer('AlignPadding', '对齐组件】基线组件、边距组件', '/align', Colors.blue),
+  // ContainerInfo('CustomPaint', '绘制组件', '/custom_paint'),
+];
+// final singleRenderList = <ContainerInfo>[
+//   ContainerInfo('Clip', '椭圆裁剪，可容纳一个子组件，并将其以宽高为⻓轴和短轴进行椭圆裁切', '/clip'),
+//   ContainerInfo(
+//       'Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box'),
+//   ContainerInfo('AlignPadding', '对齐组件】基线组件、边距组件', '/align'),
+//   // ContainerInfo('CustomPaint', '绘制组件', '/custom_paint'),
+// ];
+
+// 多渲染
+final multiRenderList = <NewContainer>[];
+
+// 可折叠
+final sliverList = <NewContainer>[];
+
+// 可寄居
+final liveAwayList = <NewContainer>[];
+
+// 其他
+final otherList = <NewContainer>[];
