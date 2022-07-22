@@ -1,11 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/bottom/index.dart';
+import 'package:flutter_demo/sample/chat_list.dart';
 import 'package:flutter_demo/sample/demo_pea.dart';
+import 'package:flutter_demo/sample/juejin_list_item.dart';
 import 'package:flutter_demo/sample/plant_shop.dart';
+import 'package:flutter_demo/sample/single_chat.dart';
 import 'package:flutter_demo/sample/timeline_page.dart';
+import 'package:flutter_demo/sample/upload_page.dart';
+import 'package:flutter_demo/widget/liveaway/all_theme_widget.dart';
+import 'package:flutter_demo/widget/liveaway/default_text_style_widget.dart';
+import 'package:flutter_demo/widget/liveaway/expanded_widget.dart';
+import 'package:flutter_demo/widget/liveaway/flexible_widget.dart';
+import 'package:flutter_demo/widget/liveaway/media_query_widget.dart';
+import 'package:flutter_demo/widget/liveaway/positioned_widget.dart';
+import 'package:flutter_demo/widget/multi/flex_widget.dart';
+import 'package:flutter_demo/widget/multi/flow_widget.dart';
+import 'package:flutter_demo/widget/multi/indexed_stack_widget.dart';
+import 'package:flutter_demo/widget/multi/rich_text_widget.dart';
+import 'package:flutter_demo/widget/multi/stack_widget.dart';
+import 'package:flutter_demo/widget/multi/wrap_widget.dart';
+import 'package:flutter_demo/widget/other/list_wheel_viewport_widget.dart';
+import 'package:flutter_demo/widget/other/performance_overlay_widget.dart';
+import 'package:flutter_demo/widget/other/table_widget.dart';
 import 'package:flutter_demo/widget/single/align_padding_widget.dart';
 import 'package:flutter_demo/widget/single/box_widget.dart';
 import 'package:flutter_demo/widget/single/clip_widget.dart';
+import 'package:flutter_demo/widget/single/color_filtered_widget.dart';
+import 'package:flutter_demo/widget/single/custom_paint_widget.dart';
+import 'package:flutter_demo/widget/single/layout_builder_widget.dart';
+import 'package:flutter_demo/widget/single/off_stage_widget.dart';
+import 'package:flutter_demo/widget/single/opacity_widget.dart';
+import 'package:flutter_demo/widget/sliver/custom_scroll_view_widget.dart';
+import 'package:flutter_demo/widget/sliver/nested_scroll_view_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_animated_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_app_bar_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_fill_remaining_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_fixed_extent_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_grid_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_layout_builder_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_list_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_padding_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_persistent_header_widget.dart';
+import 'package:flutter_demo/widget/sliver/sliver_to_box_adapter_widget.dart';
 import 'package:flutter_demo/widget/stateful/animated_builder_widget.dart';
 import 'package:flutter_demo/widget/stateful/animated_container_widget.dart';
 import 'package:flutter_demo/widget/stateful/animated_effect_widget.dart';
@@ -32,7 +68,6 @@ import 'package:flutter_demo/widget/stateful/reorderable_list_view_widget.dart';
 import 'package:flutter_demo/widget/stateful/scaffold_widget.dart';
 import 'package:flutter_demo/widget/stateful/selectable_text_widget.dart';
 import 'package:flutter_demo/widget/stateful/slide_widget.dart';
-import 'package:flutter_demo/widget/stateful/sliverappbar_widget.dart';
 import 'package:flutter_demo/widget/stateful/snake_bar_widget.dart';
 import 'package:flutter_demo/widget/stateful/stateful_builder_widget.dart';
 import 'package:flutter_demo/widget/stateful/stepper_widget.dart';
@@ -164,4 +199,50 @@ Map<String, Widget Function(BuildContext)> routes = {
   "/box": (context) => const BoxWidget(),
   "/align": (context) => const AlignPaddingWidget(),
   "/pea": (context) => const DemoPae(),
+  "/paint": (context) => const CustomPaintWidget(),
+  "/filter": (context) => const ColorFilteredWidget(),
+
+  "/layout": (context) => const LayoutBuilderWidget(),
+  "/offstage": (context) => const OffstageWidget(),
+  "/opacity": (context) => const OpacityWidget(),
+
+  'juejin_list_item': (context) => const JuejinListItem(),
+  'single_chat': (context) => const SingleChat(),
+  'chat_list': (context) => const ChatList(),
+  'upload_page': (context) => const UploadPage(),
+
+  ///多渲染组件
+  'flex': (context) => FlexWidget(),
+  'stack': (context) => const StackWidget(),
+  'indexed_stack': (context) => const IndexedStackWidget(),
+  'wrap': (context) => WrapWidget(),
+  'flow': (context) => const FlowWidget(),
+  'rich_text': (context) => const RichTextWidget(),
+
+  ///可折叠组件
+  'custom_scroll_view': (context) => const CustomScrollViewWidget(),
+  'sliver_list': (context) => const SliverListWidget(),
+  'sliver_persistent_header': (context) => const SliverPersistentHeaderWidget(),
+  'sliver_app_bar': (context) => const SliverAppBarWidget(),
+  'sliver_grid': (context) => const SliverGridWidget(),
+  'sliver_to_box_adapter': (context) => const SliverToBoxAdapterWidget(),
+  'sliver_layout_builder': (context) => const SliverLayoutBuilderWidget(),
+  'sliver_fill_remaining': (context) => const SliverFillRemainingWidget(),
+  'sliver_fixed_extent_list': (context) => const SliverFixedExtentListWidget(),
+  'sliver_padding': (context) => SliverPaddingWidget(),
+  'sliver_animated_list': (context) => const SliverAnimatedListWidget(),
+  'nested_scroll_view': (context) => NestedScrollViewWidget(),
+
+  ///可寄居组件
+  'expanded': (context) => const ExpandedWidget(),
+  'flexible': (context) => const FlexibleWidget(),
+  'media_query': (context) => const MediaQueryWidget(),
+  'positioned': (context) => PositionedWidget(),
+  'default_text_style': (context) => const DefaultTextStyleWidget(),
+  'all_theme': (context) => const AllThemeWidget(),
+
+  ///其他组件
+  'table': (context) => const TableWidget(),
+  'list_wheel_viewport_widget': (context) => const ListWheelViewportWidget(),
+  'performance_overlay': (context) => const PerformanceOverlayWidget(),
 };

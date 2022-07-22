@@ -25,6 +25,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_localizations:
     sdk: flutter
+  device_preview: ^1.1.0
+  flutter_custom_clippers: ^2.0.0
+  wrapper: ^1.0.2
 
 dev_dependencies:
   flutter_test:

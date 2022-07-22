@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/data.dart';
-import 'package:flutter_demo/widget/custom/new_widget.dart';
+import 'package:flutter_demo/widget/custom/custom_list_item.dart';
 
 class OtherWidgetPage extends StatelessWidget {
   const OtherWidgetPage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class OtherWidgetPage extends StatelessWidget {
       child: ListView.builder(
         itemCount: otherList.length,
         itemBuilder: (BuildContext context, int index) {
-          return NewWidget(otherList[index]);
+          return CustomListItem(otherList[index]);
         },
       ),
     );

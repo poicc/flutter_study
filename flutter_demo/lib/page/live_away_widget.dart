@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/data.dart';
-import 'package:flutter_demo/widget/custom/new_widget.dart';
+import 'package:flutter_demo/widget/custom/custom_list_item.dart';
 
 class LiveWidgetPage extends StatelessWidget {
   const LiveWidgetPage({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class LiveWidgetPage extends StatelessWidget {
       child: ListView.builder(
         itemCount: liveAwayList.length,
         itemBuilder: (BuildContext context, int index) {
-          return NewWidget(liveAwayList[index]);
+          return CustomListItem(liveAwayList[index]);
         },
       ),
     );

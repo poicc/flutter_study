@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/widget/custom/new_widget.dart';
+import 'package:flutter_demo/sample/juejin_list_item.dart';
+import 'package:flutter_demo/widget/custom/custom_list_item.dart';
 import 'package:flutter_demo/widget/custom/widget_container.dart';
 
 final data = <dynamic>[
@@ -112,8 +113,6 @@ final statefulList = <ContainerInfo>[
   ContainerInfo(
       'Image', '用于显示一张图片，可以从文件、内存、网络、资源里加载，可以指定适应方式、样式、颜色混合模式、重复模式。', '/image'),
   ContainerInfo(
-      'SliverAppBar', 'SliverAppBar组件可以实现页面头部区域展开、折叠的效果。', '/sliverappbar'),
-  ContainerInfo(
       'AnimatedContainer', '动画容器，可指定动画但时长和曲线，有动画结束事件', '/animated/container'),
   ContainerInfo(
       'AnimatedBuilder',
@@ -180,30 +179,322 @@ final statefulList = <ContainerInfo>[
 ];
 
 // 单渲染组件列表
-final singleRenderList = <NewContainer>[
-  NewContainer(
-      'Clip', '椭圆裁剪，可容纳一个子组件，并将其以宽高为⻓轴和短轴进行椭圆裁切', '/clip', Colors.blue),
-  NewContainer('Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box',
-      Colors.blue),
-  NewContainer('AlignPadding', '对齐组件】基线组件、边距组件', '/align', Colors.blue),
-  // ContainerInfo('CustomPaint', '绘制组件', '/custom_paint'),
+final singleRenderList = <ItemInfo>[
+  ItemInfo('Clip', '椭圆裁剪，可容纳一个子组件，并将其以宽高为⻓轴和短轴进行椭圆裁切', '/clip',
+      const Color(0xffbbdfdd), Colors.blueGrey, 4),
+  ItemInfo('Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box',
+      const Color(0xffbbdfdd), Colors.blueGrey, 4),
+  ItemInfo('AlignPadding', '对齐组件、基线组件、边距组件', '/align', const Color(0xffbbdfdd),
+      Colors.blueGrey, 4),
+  ItemInfo('CustomPaint', '绘制组件', '/paint', const Color(0xffbbdfdd),
+      Colors.blueGrey, 4),
+  ItemInfo('Filter', '滤色器相关', '/filter', const Color(0xffbbdfdd),
+      Colors.blueGrey, 4),
+  ItemInfo('LayoutBuilder', '布局构造器、可以监测到父容器到区域大小，并根据芙蓉起到尺寸信息完成定义布局，是一个非常实用的组件',
+      '/layout', const Color(0xffbbdfdd), Colors.blueGrey, 4),
+  ItemInfo('OffStage', '消失组件，可容纳一个子组件，可更改其消失与否。offstage属性为true表示隐藏',
+      '/offstage', const Color(0xffbbdfdd), Colors.blueGrey, 4),
+  ItemInfo('Opacity', '透明度组件，可容纳一个子组件，将其透明度变为opacity值，取值0-1之间', '/opacity',
+      const Color(0xffbbdfdd), Colors.blueGrey, 4),
 ];
-// final singleRenderList = <ContainerInfo>[
-//   ContainerInfo('Clip', '椭圆裁剪，可容纳一个子组件，并将其以宽高为⻓轴和短轴进行椭圆裁切', '/clip'),
-//   ContainerInfo(
-//       'Box', '装饰盒、定尺寸盒、适应盒、限制盒、约束盒、分率盒、比例盒、溢出盒、尺寸溢出盒、旋转盒、颜色盒。', '/box'),
-//   ContainerInfo('AlignPadding', '对齐组件】基线组件、边距组件', '/align'),
-//   // ContainerInfo('CustomPaint', '绘制组件', '/custom_paint'),
-// ];
 
 // 多渲染
-final multiRenderList = <NewContainer>[];
+final multiRenderList = <ItemInfo>[
+  ItemInfo(
+    'Flex',
+    '弹性布局，Row和Column的父类，最强大的布局方式，可容纳多个组件，可与Spacer、Expanded、Flexible组件联用进行灵活布局。',
+    'flex',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+  ItemInfo(
+    'Stack',
+    '堆叠布局，可容纳多个组件，以堆叠的方式摆放组件，后者居上。拥有alignment属性，可与Positioned组件联用，精确定位。',
+    'stack',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+  ItemInfo(
+    'IndexedStack',
+    '索引堆叠，Stack组件的子类，可以堆叠多个组件，并通过index来指定展示的组件的索引，其余的会被隐藏。',
+    'indexed_stack',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+  ItemInfo(
+    'Wrap',
+    '包裹布局，可容纳多个组件，按照指定的方向依次排布，可以很方便地处理孩子之间的间距，当越界时可以自动换行，拥有主轴和交叉轴的对其方式，比较灵活。',
+    'wrap',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+  ItemInfo(
+    'Flow',
+    '流动布局，可容纳多个组件，需要自己指定排布的代理，可以高强度自定义组件打牌不，实现普通布局无法达到的效果，布局之王。',
+    'flow',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+  ItemInfo(
+    'RichText',
+    '富文本，可以容纳多种文字样式或各种组件的富文本组件，应用较为广泛。',
+    'rich_text',
+    const Color(0xffb0d4ec),
+    const Color(0xff2999e0),
+    4,
+  ),
+];
 
 // 可折叠
-final sliverList = <NewContainer>[];
+final sliverList = <ItemInfo>[
+  ItemInfo(
+    'CustomScrollView',
+    '通用滑动视图组件，可指定滑动方向、是否反向、滑动控制器等属性，其子组件必须是Sliver家族成员。',
+    'custom_scroll_view',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverList',
+    'Sliver家族的列表组件，通过指定delegate构造子组件，通常用于CustomScrollView中。',
+    'sliver_list',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverPersistentHeader',
+    '通常用于CustomScrollView中，可以让一个组件在滑动中停留在顶部，不会在滑动中消失。',
+    'sliver_persistent_header',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverAppBar',
+    'Sliver家族的顶部栏通用结构，可以指定左中右组件、收缩空间、影深、固定模式、背景色等属性。',
+    'sliver_app_bar',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverGrid',
+    'Sliver网格，Sliver家族的网格列表组件，和GridView类似，通过count和extent构造，通常用于CustomScrollView中。',
+    'sliver_grid',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverToBoxAdapter',
+    'Sliver适配器，可以容纳一个普通的组件，并将其转化为Sliver家族组件的适配器。',
+    'sliver_to_box_adapter',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverLayoutBuilder',
+    'Sliver布局构造器，Sliver家族的一员，在滑动过程中可以通过回调出的SliverConstraints对象进行子组件的构造。',
+    'sliver_layout_builder',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverFillRemaining',
+    'Sliver填补剩余，一个包含单个box子元素的sliver,填充了视窗中的剩余空间。可指定两个bool值控制滑动效果。',
+    'sliver_fill_remaining',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverFixedExtentList',
+    'Sliver家族的列表组件，通过delegate构造子组件，可以指定item的高度，通常用于CustomScrollView中。',
+    'sliver_fixed_extent_list',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverPadding',
+    'Sliver内间距，可容纳一个Sliver家族的子组件，添加自身内边距来限制子组件的占位，核心属性为padding。',
+    'sliver_padding',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'SliverAnimatedList',
+    'Sliver动画列表，在插入或删除项目时有动画效果的Sliver组件。',
+    'sliver_animated_list',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+  ItemInfo(
+    'NestedScrollView',
+    '嵌套滑动视图，用于多个视图滑动嵌套处理，可以指定头部、滑动控制器、滑动方向等，其中body必须是可滑动类型的组件。',
+    'nested_scroll_view',
+    const Color(0xffecdeb3),
+    const Color(0xffeec034),
+    4,
+  ),
+];
 
-// 可寄居
-final liveAwayList = <NewContainer>[];
+// 可寄居组件列表
+final liveAwayList = <ItemInfo>[
+  ItemInfo(
+    'Flexible',
+    '只能用于Flex、Row、Column中，可嵌套孩子组件，利用剩余空间对占位空间进行延展，也可指定fit类型。',
+    'flexible',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+  ItemInfo(
+    'Expanded',
+    '父类是Flexible，相当于一个fit类型为tight的Flexible组件。可嵌套孩子组件，利用剩余空间对占位空间进行延展。',
+    'expanded',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+  ItemInfo(
+    'MediaQuery',
+    '媒体查询组件，可通过MediaQuery.of来获取屏幕尺寸、设备密度、文字缩放比例、边距等信息。',
+    'media_query',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+  ItemInfo(
+    'Positioned',
+    '定位组件，只能用在Stack中，可以指定上下左右距离，对某个组件进行位置的精确摆放。',
+    'positioned',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+  ItemInfo(
+    'DefaultTextStyle',
+    '可容纳一个子组件，为后代的文字指定默认样式。常用于多个相同文字的样式统一、避免一一设置。',
+    'default_text_style',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+  ItemInfo(
+    'AllTheme',
+    '各种Theme组件，包括IconTheme、ButtonTheme、ChipTheme、DividerTheme、SliderTheme、PopupMenuTheme、ListTileTheme等。',
+    'all_theme',
+    const Color(0xffd0efd8),
+    const Color(0xff499a5b),
+    4,
+  ),
+];
 
-// 其他
-final otherList = <NewContainer>[];
+// 其他未分类组件列表
+final otherList = <ItemInfo>[
+  ItemInfo(
+    'Table',
+    '表格组件,用于展示表格的组件，可指定边线、列宽、文字方向等属性，核心对象是TableRow。',
+    'table',
+    const Color(0xfff6dce4),
+    const Color(0xffee5a8a),
+    4,
+  ),
+  ItemInfo(
+    'ListWheelViewport',
+    '一个将子组件列表显示在柱状滚轮上的视口，是ListWheelScrollView、CupertinoPicker的底层依赖。',
+    'list_wheel_viewport_widget',
+    const Color(0xfff6dce4),
+    const Color(0xffee5a8a),
+    4,
+  ),
+  ItemInfo(
+    'PerformanceOverlay',
+    '性能浮层，可以非常方便地开启性能检测的两个柱图，方便查看刷新界面时帧率的变化情况。',
+    'performance_overlay',
+    const Color(0xfff6dce4),
+    const Color(0xffee5a8a),
+    4,
+  ),
+];
+
+final List<SpecialColumnItem> listData = [
+  SpecialColumnItem(
+    title: "Flutter 基础",
+    url: "images/draw_bg3.webp",
+    articleCount: 97,
+    attentionCount: 188,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 周边",
+    url: "images/draw_bg4.webp",
+    articleCount: 90,
+    attentionCount: 128,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 绘制集录",
+    url: "images/base_draw.webp",
+    articleCount: 29,
+    attentionCount: 118,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 动画集录",
+    url: "images/anim_draw.webp",
+    articleCount: 34,
+    attentionCount: 18,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 玩转正则",
+    url: "images/draw_bg3.webp",
+    articleCount: 7,
+    attentionCount: 88,
+  ),
+  SpecialColumnItem(
+    title: "Rust 学习指南",
+    url: "images/draw_bg4.webp",
+    articleCount: 90,
+    attentionCount: 228,
+  ),
+  SpecialColumnItem(
+    title: "Vue 学习指南",
+    url: "images/base_draw.webp",
+    articleCount: 90,
+    attentionCount: 128,
+  ),
+  SpecialColumnItem(
+    title: "前端绘制宝典",
+    url: "images/anim_draw.webp",
+    articleCount: 19,
+    attentionCount: 1228,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 基础",
+    url: "images/draw_bg3.webp",
+    articleCount: 97,
+    attentionCount: 188,
+  ),
+  SpecialColumnItem(
+    title: "FlutterUnit 周边",
+    url: "images/draw_bg4.webp",
+    articleCount: 90,
+    attentionCount: 128,
+  ),
+  SpecialColumnItem(
+    title: "Flutter 绘制集录",
+    url: "images/base_draw.webp",
+    articleCount: 90,
+    attentionCount: 128,
+  ),
+];
